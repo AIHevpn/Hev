@@ -74,8 +74,8 @@ with gr.Blocks(theme=my_applio, title="Hev") as hev:
     with gr.Tab(i18n("Plugins")):
         plugins_tab()
 
-    with gr.Tab(i18n("Report a Bug")):
-        report_tab()
+    with gr.Tab(i18n("cover")):
+        cover_tab()
 
     with gr.Tab(i18n("Settings")):
         presence_tab()
@@ -84,6 +84,7 @@ with gr.Blocks(theme=my_applio, title="Hev") as hev:
         version_tab()
         lang_tab()
         restart_tab()
+
 
 
 if __name__ == "__main__":
