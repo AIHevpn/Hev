@@ -15,6 +15,9 @@ mdxnet_models_dir = os.path.join(BASE_DIR, 'tabs/covermdxnet_models')
 rvc_models_dir = os.path.join(BASE_DIR, 'rvc_models')
 output_dir = os.path.join(BASE_DIR, 'song_output')
 
+import os
+os.system("python tabs/cover/download_models.py")
+
 
 def get_current_models(models_dir):
     models_list = os.listdir(models_dir)
@@ -165,6 +168,8 @@ if __name__ == '__main__':
     voice_models = get_current_models(rvc_models_dir)
     with open(os.path.join(rvc_models_dir, 'public_models.json'), encoding='utf8') as infile:
         public_models = json.load(infile)
+
+
 
         # main tab
         with gr.Tab("Generate"):
