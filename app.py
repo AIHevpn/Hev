@@ -42,10 +42,10 @@ my_applio = loadThemes.load_json()
 if my_applio:
     pass
 else:
-    my_applio = "ParityError/Interstellar"
+    my_applio = "Hev832/orange"
 
-with gr.Blocks(theme=my_applio, title="Applio") as Applio:
-    gr.Markdown("# Applio")
+with gr.Blocks(theme=my_applio, title="Hev") as hev:
+    gr.Markdown("# Hev")
     gr.Markdown(
         i18n(
             "Ultimate voice cloning tool, meticulously optimized for unrivaled power, modularity, and user-friendly experience."
@@ -53,12 +53,15 @@ with gr.Blocks(theme=my_applio, title="Applio") as Applio:
     )
     gr.Markdown(
         i18n(
-            "[Support](https://discord.gg/IAHispano) — [Discord Bot](https://discord.com/oauth2/authorize?client_id=1144714449563955302&permissions=1376674695271&scope=bot%20applications.commands) — [Find Voices](https://applio.org/models) — [GitHub](https://github.com/IAHispano/Applio)"
+            "[Support IAHispano for original projetc!](https://discord.gg/IAHispano) — [Discord Bot](https://discord.com/oauth2/authorize?client_id=1144714449563955302&permissions=1376674695271&scope=bot%20applications.commands) — [Find Voices](https://applio.org/models) — [GitHub Applio](https://github.com/IAHispano/Applio)"
         )
     )
     with gr.Tab(i18n("Inference")):
         inference_tab()
 
+    with gr.Tab(i18n("Download")):
+        download_tab()
+    
     with gr.Tab(i18n("Train")):
         train_tab()
 
@@ -70,9 +73,6 @@ with gr.Blocks(theme=my_applio, title="Applio") as Applio:
 
     with gr.Tab(i18n("Plugins")):
         plugins_tab()
-
-    with gr.Tab(i18n("Download")):
-        download_tab()
 
     with gr.Tab(i18n("Report a Bug")):
         report_tab()
@@ -87,8 +87,7 @@ with gr.Blocks(theme=my_applio, title="Applio") as Applio:
 
 
 if __name__ == "__main__":
-    Applio.launch(
-        favicon_path="assets/ICON.ico",
+    hev.launch(
         share="--share" in sys.argv,
         inbrowser="--open" in sys.argv,
         server_port=6969,
