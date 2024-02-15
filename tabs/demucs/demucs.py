@@ -14,6 +14,7 @@ article = "<p style='text-align: center'><a href='https://arxiv.org/abs/1911.132
 
 examples=[['test.mp3']]
 
+def demucs_tab():
 iface = gr.Interface(
   inference,
   gr.inputs.Audio(type="numpy", label="Input"),
