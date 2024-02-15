@@ -90,7 +90,7 @@ We appreciate all contributions ❤️
 
 - Implement: sparate vocal using decmus
 
-- download acappla any link.
+- download acapella any link.
 
 ## Credits
 - [ContentVec](https://github.com/auspicious3000/contentvec/) by auspicious3000
