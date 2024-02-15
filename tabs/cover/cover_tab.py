@@ -11,9 +11,9 @@ from main import song_cover_pipeline
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-mdxnet_models_dir = os.path.join(BASE_DIR, 'tabs/covermdxnet_models')
-rvc_models_dir = os.path.join(BASE_DIR, 'rvc_models')
-output_dir = os.path.join(BASE_DIR, 'song_output')
+mdxnet_models_dir = os.path.join(BASE_DIR, 'tabs/cover/mdxnet_models')
+rvc_models_dir = os.path.join(BASE_DIR, 'tabs/cover/rvc_models')
+output_dir = os.path.join(BASE_DIR, 'tabs/cover/song_output')
 
 import os
 os.system("python tabs/cover/download_models.py")
