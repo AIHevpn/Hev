@@ -282,16 +282,13 @@ def inference_tab():
                 f0method = gr.Radio(
                     label=i18n("Pitch extraction algorithm"),
                     choices=[
-                        "pm",
-                        "harvest",
-                        "dio",
                         "crepe",
                         "crepe-tiny",
                         "rmvpe",
                         "fcpe",
                         "hybrid[rmvpe+fcpe]",
                     ],
-                    value="rmvpe",
+                    value="hybrid[rmvpe+fcpe]",
                     interactive=True,
                 )
 
@@ -371,9 +368,6 @@ def inference_tab():
                 f0method_batch = gr.Radio(
                     label=i18n("Pitch extraction algorithm"),
                     choices=[
-                        "pm",
-                        "harvest",
-                        "dio",
                         "crepe",
                         "crepe-tiny",
                         "rmvpe",
