@@ -48,7 +48,7 @@ Visit [Applio Documentation](https://docs.applio.org/) for a detailed UI usage e
 
 ### Windows
 ```bash
-./run-applio.bat
+./run-run-Hev.bat
 ```
 
 ### Linux
