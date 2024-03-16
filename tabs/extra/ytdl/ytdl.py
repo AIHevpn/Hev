@@ -21,9 +21,9 @@ def download_youtube_audio(youtube_url, custom_file_name):
 
 
 def ytdl():
-    with gr.Accordion(label=("download youtube acappela"):
+    with gr.Accordion(label="download youtube acappela"):
         with gr.Column():
-            url = gr.Textbox(
+            youtube_url = gr.Textbox(
                 label=("url to audio"),
                 value="",
                 max_lines=1,
