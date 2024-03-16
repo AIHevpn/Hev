@@ -1,4 +1,4 @@
-# Hev Applio Fork
+# Hev 
 
 Welcome to **Hev**, Voice cloning tool from Applio Fork user-friendly experience.
 
@@ -7,55 +7,13 @@ Welcome to **Hev**, Voice cloning tool from Applio Fork user-friendly experience
 [![Open In Colab](https://img.shields.io/badge/google_colab-F9AB00?style=flat-square&logo=googlecolab&logoColor=white)](https://colab.research.google.com/github/iahispano/applio/blob/master/assets/Applio.ipynb)
 
 ## Content Table
-- [**Installation**](#installation)
-  - [Windows](#windows)
-  - [Linux](#linux)
-  - [Using Makefile](#using-makefile-for-platforms-such-as-paperspace)
-- [**Usage**](#usage)
-  - [Windows](#windows-1)
-  - [Linux](#linux-1)
-  - [Using Makefile](#using-makefile-for-platforms-such-as-paperspace-1)
+
 - [**Repository Enhancements**](#repository-enhancements)
 - [**Credits**](#credits)
   - [Contributors](#contributors)
 
-## Installation
-Download the latest version from [GitHub Releases](https://github.com/IAHispano/Applio-RVC-Fork/releases) or use [Precompiled Versions](https://huggingface.co/IAHispano/applio/tree/main/Applio%20V3%20Precompiled).
 
-### Windows
-```bash
-./run-install.bat
-```
 
-### Linux
-```bash
-chmod +x run-install.sh
-./run-install.sh
-```
-
-### Using Makefile (for platforms such as [Paperspace](https://www.paperspace.com/))
-```
-make run-install
-```
-
-## Usage
-Visit [Applio Documentation](https://docs.applio.org/) for a detailed UI usage explanation.
-
-### Windows
-```bash
-./run-run-Hev.bat
-```
-
-### Linux
-```bash
-chmod +x run-applio.sh
-./run-applio.sh
-```
-
-### Using Makefile (for platforms such as [Paperspace](https://www.paperspace.com/))
-```
-make run-applio
-```
 
 ## Repository Enhancements
 
@@ -107,6 +65,6 @@ We appreciate all contributions ❤️
 - [Applio](https://github.com/IAHispano/Applio) by IAHispano
 
 ### Contributors
-<a href="https://github.com/IAHispano/Applio/graphs/contributors" target="_blank">
-  <img src="https://contrib.rocks/image?repo=IAHispano/Applio" />
+<a href="https://github.com/AIHevpn/Hev/graphs/contributors" target="_blank">
+  <img src="https://contrib.rocks/image?repo=AIHevpn/Hev" />
 </a>
