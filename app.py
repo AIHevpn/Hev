@@ -44,7 +44,7 @@ if my_applio:
 else:
     my_applio = "Hev832/orange"
 
-with gr.Blocks(theme="Hev832/soft", title="Hev") as hev:
+with gr.Blocks(theme=my_applio, title="Hev") as hev:
     gr.Markdown("# Hev")
     gr.Markdown(
         i18n(
@@ -53,7 +53,7 @@ with gr.Blocks(theme="Hev832/soft", title="Hev") as hev:
     )
     gr.Markdown(
         i18n(
-            "[Support IAHispano for original projetc!](https://discord.gg/IAHispano) — [Discord Bot](https://discord.com/oauth2/authorize?client_id=1144714449563955302&permissions=1376674695271&scope=bot%20applications.commands) — [Find Voices](https://applio.org/models) — [GitHub Applio](https://github.com/IAHispano/Applio)"
+            "[Support IAHispano for original project!](https://discord.gg/IAHispano) — [Discord Bot](https://discord.com/oauth2/authorize?client_id=1144714449563955302&permissions=1376674695271&scope=bot%20applications.commands) — [Find Voices](https://applio.org/models) — [GitHub Applio](https://github.com/IAHispano/Applio)"
         )
     )
     with gr.Tab(i18n("Inference")):
