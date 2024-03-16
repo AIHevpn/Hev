@@ -44,11 +44,11 @@ if my_applio:
 else:
     my_applio = "Hev832/orange"
 
-with gr.Blocks(theme=my_applio, title="Hev") as hev:
+with gr.Blocks(theme="Hev832/soft", title="Hev") as hev:
     gr.Markdown("# Hev")
     gr.Markdown(
         i18n(
-            "Ultimate voice cloning tool, meticulously optimized for unrivaled power, modularity, and user-friendly experience."
+            "Voice cloning tool from Applio Fork, user-friendly experience."
         )
     )
     gr.Markdown(
@@ -75,12 +75,10 @@ with gr.Blocks(theme=my_applio, title="Hev") as hev:
         plugins_tab()
 
     
-    with gr.Tab(i18n("demucs")):
-         demucs_tab()
 
     with gr.Tab(i18n("Settings")):
-        presence_tab()
-        flask_server_tab()
+        #presence_tab()
+        #flask_server_tab()
         theme_tab()
         version_tab()
         lang_tab()
