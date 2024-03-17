@@ -39,12 +39,7 @@ These enhancements contribute to a more robust and scalable codebase, making the
 
 We appreciate all contributions ❤️
 
-## Planned Features
-- Implement: youtube download wav
 
-- Implement: sparate vocal using decmus
-
-- download acapella any link.
 
 ## Credits
 - [ContentVec](https://github.com/auspicious3000/contentvec/) by auspicious3000
