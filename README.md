@@ -5,7 +5,7 @@ Welcome to **Hev**, Voice cloning tool from Applio Fork user-friendly experience
 
 [![🍏 Applio Plugins](https://img.shields.io/badge/%F0%9F%8D%8F%20Applio%20Plugins-ffffff?style=flat-square&link=https://github.com/IAHispano/Applio-Plugins)](https://github.com/IAHispano/Applio-Plugins)
 
-[![Open In Colab](https://img.shields.io/badge/google_colab-F9AB00?style=flat-square&logo=googlecolab&logoColor=white)](https://colab.research.google.com/github/iahispano/applio/blob/master/assets/Applio.ipynb)
+[![Open In Colab](https://img.shields.io/badge/google_colab-F9AB00?style=flat-square&logo=googlecolab&logoColor=white)](https://colab.research.google.com/github/AIHevpn/Hev/blob/main/assets/Hev.ipynb)
 
 ## Content Table
 
