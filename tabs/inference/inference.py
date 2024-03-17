@@ -168,22 +168,54 @@ def match_index(model_file_value):
 
 
 def download_youtube_audio(youtube_url, cfile):
-    # Define yt-dlp options
+def get_youtube_video_id(url, ignore_playlist=True):
+    """
+    Examples:
+    http://youtu.be/SA2iWivDJiE
+    http://www.youtube.com/watch?v=_oPAwA_Udwc&feature=feedu
+    http://www.youtube.com/embed/SA2iWivDJiE
+    http://www.youtube.com/v/SA2iWivDJiE?version=3&amp;hl=en_US
+    """
+    query = urlparse(url)
+    if query.hostname == 'youtu.be':
+        if query.path[1:] == 'watch':
+            return query.query[2:]
+        return query.path[1:]
+
+    if query.hostname in {'www.youtube.com', 'youtube.com', 'music.youtube.com'}:
+        if not ignore_playlist:
+            # use case: get playlist id not current video in playlist
+            with suppress(KeyError):
+                return parse_qs(query.query)['list'][0]
+        if query.path == '/watch':
+            return parse_qs(query.query)['v'][0]
+        if query.path[:7] == '/watch/':
+            return query.path.split('/')[1]
+        if query.path[:7] == '/embed/':
+            return query.path.split('/')[2]
+        if query.path[:3] == '/v/':
+            return query.path.split('/')[2]
+
+    # returns None for invalid YouTube url
+    return None
+
+
+def yt_download(link, cfile):
     ydl_opts = {
-        'format': 'bestaudio/best',
-        'postprocessors': [{
-            'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'wav',
-            'preferredquality': '192',
-        }],
-        'outtmpl': f'assets/audios/{cfile}.wav',
+        'format': 'bestaudio',
+        'outtmpl': 'assets/audios/{cfile}',
+        'nocheckcertificate': True,
+        'ignoreerrors': True,
+        'no_warnings': True,
+        'quiet': True,
+        'extractaudio': True,
+        'postprocessors': [{'key': 'FFmpegExtractAudio', 'preferredcodec': 'wav'}],
     }
-    
-    # Download the audio
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-        ydl.download([youtube_url])
-    
-    return f'Downloaded and saved as {cfile}.wav  Code by Blane'
+        result = ydl.extract_info(link, download=True)
+        download_path = ydl.prepare_filename(result, outtmpl='assets/audios/{cfile}.wav')
+
+    return download_path
 
 
 
@@ -229,7 +261,7 @@ def inference_tab():
     # download acappela tab
     with gr.Tab("download acapella"):
         with gr.Column():
-            youtube_url = gr.Textbox(
+            link = gr.Textbox(
                 label=("input Audio")
             )
             cfile = gr.Textbox(
@@ -238,13 +270,12 @@ def inference_tab():
             output = gr.Audio(
                 label=("Output")
             ),
-            download = gr.Button(
-                label=("download audio")
-            ),
-
+            
+            download = gr.Button(label=("download audio!"),
+            
             download_button.click(
-            fn=download_youtube_audio,
-            inputs=[youtube_url, cfile],
+            fn=yt_download,
+            inputs=[link, cfile],
             outputs=[output],
             )
                 
