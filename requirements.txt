@@ -12,10 +12,10 @@ pyworld==0.3.4
 scipy==1.11.1
 soundfile==0.12.1
 praat-parselmouth
-yt_dlp
 
 
 # Machine learning
+git+https://github.com/yt-dlp/yt-dlp.git
 git+https://github.com/IAHispano/fairseq; sys_platform == 'linux'
 fairseq==0.12.2; sys_platform == 'darwin' or sys_platform == 'win32'
 numba; sys_platform == 'linux'
