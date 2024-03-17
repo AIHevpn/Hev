@@ -238,7 +238,7 @@ def inference_tab():
             output = gr.Audio(
                 label=("Output")
             ),
-            download = gr.button(
+            download = gr.Button(
             label=("download audio")
             ),
 
