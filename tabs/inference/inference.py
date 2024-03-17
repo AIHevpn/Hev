@@ -233,11 +233,11 @@ def inference_tab():
                 label=("input Audio")
             )
             cfile = gr.Textbox(
-                label=("name Audio (No space)"
+                label=("name Audio (No space)")
              )
             output = gr.Audio(
                 label=("Output")
-            )
+            ),
             download = gr.button(
             label=("download audio")
             ),
