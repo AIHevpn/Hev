@@ -70,9 +70,9 @@ with gr.Blocks(theme=my_applio, title="Hev") as hev:
 
     with gr.Tab(i18n("Extra")):
         extra_tab()
-
-    with gr.Tab(("Plugins")):
         plugins_tab()
+    #with gr.Tab(("Plugins")):
+        
 
     
 
