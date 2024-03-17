@@ -63,7 +63,8 @@ We appreciate all contributions ❤️
 - [Retrieval-based-Voice-Conversion-WebUI](https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI) by RVC-Project
 - [Mangio-RVC-Fork](https://github.com/Mangio621/Mangio-RVC-Fork) by Mangio621
 - [Applio](https://github.com/IAHispano/Applio) by IAHispano
--[yt-dlp](https://github.com/yt-dlp/yt-dlp) by yt-dlp 
+
+- [yt-dlp](https://github.com/yt-dlp/yt-dlp) by yt-dlp 
 
 ### Contributors
 <a href="https://github.com/AIHevpn/Hev/graphs/contributors" target="_blank">
