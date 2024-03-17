@@ -1,4 +1,5 @@
-# Hev 
+<h1 align="center">hev</h1>
+<div align="center">
 
 Welcome to **Hev**, Voice cloning tool from Applio Fork user-friendly experience.
 
