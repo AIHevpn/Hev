@@ -167,7 +167,7 @@ def match_index(model_file_value):
 
 
 
-def download_youtube_audio(youtube_url, cfile):
+
 def get_youtube_video_id(url, ignore_playlist=True):
     """
     Examples:
