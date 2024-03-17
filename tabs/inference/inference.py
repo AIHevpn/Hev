@@ -271,7 +271,8 @@ def inference_tab():
                 label=("Output")
             ),
             
-            download = gr.Button(label=("download audio!"),
+            download = gr.Button(
+                label=("download audio!"),
             
             download_button.click(
             fn=yt_download,
