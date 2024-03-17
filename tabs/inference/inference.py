@@ -4,6 +4,8 @@ import regex as re
 import shutil
 import datetime
 import random
+import yt_dlp
+
 
 from core import (
     run_infer_script,
@@ -164,6 +166,28 @@ def match_index(model_file_value):
     return ""
 
 
+
+def download_youtube_audio(youtube_url, cfile):
+    # Define yt-dlp options
+    ydl_opts = {
+        'format': 'bestaudio/best',
+        'postprocessors': [{
+            'key': 'FFmpegExtractAudio',
+            'preferredcodec': 'wav',
+            'preferredquality': '192',
+        }],
+        'outtmpl': f'assets/audios{cfile}.wav',
+    }
+    
+    # Download the audio
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        ydl.download([youtube_url])
+    
+    return f'Downloaded and saved as {cfile}.wav  Code by Blane'
+
+
+
+
 # Inference tab
 def inference_tab():
     default_weight = random.choice(names) if names else None
@@ -202,7 +226,30 @@ def inference_tab():
                 inputs=[model_file],
                 outputs=[index_file],
             )
+    # download acappela tab
+    with gr.Tab("download acapella"):
+        with gr.Column():
+            youtube_url = gr.Textbox(
+                label=("input Audio")
+            )
+            cfile = gr.Textbox(
+                label=("name Audio (No space)"
+             )
+            cfile = gr.Textbox(
+                label=("name Audio (No space)"
+             )
+            output = gr.Audio("Output")
+            )
+            download = gr.button(
+            label=("download audio"
+            )
 
+            download_button.click(
+            fn=download_youtube_audio,
+            inputs=[youtube_url, cfile],
+            outputs=[output],
+            )
+                
     # Single inference tab
     with gr.Tab(i18n("Single")):
         with gr.Column():
@@ -287,6 +334,7 @@ def inference_tab():
                         "rmvpe",
                         "fcpe",
                         "hybrid[rmvpe+fcpe]",
+                        "hybrid[rmvpe+fcpe+crepe-tiny]",
                     ],
                     value="hybrid[rmvpe+fcpe]",
                     interactive=True,
