@@ -176,7 +176,7 @@ def download_youtube_audio(youtube_url, cfile):
             'preferredcodec': 'wav',
             'preferredquality': '192',
         }],
-        'outtmpl': f'assets/audios{cfile}.wav',
+        'outtmpl': f'assets/audios/{cfile}.wav',
     }
     
     # Download the audio
@@ -235,14 +235,12 @@ def inference_tab():
             cfile = gr.Textbox(
                 label=("name Audio (No space)"
              )
-            cfile = gr.Textbox(
-                label=("name Audio (No space)"
-             )
-            output = gr.Audio("Output")
+            output = gr.Audio(
+                label=("Output")
             )
             download = gr.button(
-            label=("download audio"
-            )
+            label=("download audio")
+            ),
 
             download_button.click(
             fn=download_youtube_audio,
