@@ -168,57 +168,6 @@ def match_index(model_file_value):
 
 
 
-def get_youtube_video_id(url, ignore_playlist=True):
-    """
-    Examples:
-    http://youtu.be/SA2iWivDJiE
-    http://www.youtube.com/watch?v=_oPAwA_Udwc&feature=feedu
-    http://www.youtube.com/embed/SA2iWivDJiE
-    http://www.youtube.com/v/SA2iWivDJiE?version=3&amp;hl=en_US
-    """
-    query = urlparse(url)
-    if query.hostname == 'youtu.be':
-        if query.path[1:] == 'watch':
-            return query.query[2:]
-        return query.path[1:]
-
-    if query.hostname in {'www.youtube.com', 'youtube.com', 'music.youtube.com'}:
-        if not ignore_playlist:
-            # use case: get playlist id not current video in playlist
-            with suppress(KeyError):
-                return parse_qs(query.query)['list'][0]
-        if query.path == '/watch':
-            return parse_qs(query.query)['v'][0]
-        if query.path[:7] == '/watch/':
-            return query.path.split('/')[1]
-        if query.path[:7] == '/embed/':
-            return query.path.split('/')[2]
-        if query.path[:3] == '/v/':
-            return query.path.split('/')[2]
-
-    # returns None for invalid YouTube url
-    return None
-
-
-def yt_download(link, cfile):
-    ydl_opts = {
-        'format': 'bestaudio',
-        'outtmpl': 'assets/audios/{cfile}',
-        'nocheckcertificate': True,
-        'ignoreerrors': True,
-        'no_warnings': True,
-        'quiet': True,
-        'extractaudio': True,
-        'postprocessors': [{'key': 'FFmpegExtractAudio', 'preferredcodec': 'wav'}],
-    }
-    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-        result = ydl.extract_info(link, download=True)
-        download_path = ydl.prepare_filename(result, outtmpl='assets/audios/{cfile}.wav')
-
-    return download_path
-
-
-
 
 # Inference tab
 def inference_tab():
@@ -258,27 +207,7 @@ def inference_tab():
                 inputs=[model_file],
                 outputs=[index_file],
             )
-    # download acappela tab
-    with gr.Tab("download acapella"):
-        with gr.Column():
-            link = gr.Textbox(
-                label=("input Audio")
-            )
-            cfile = gr.Textbox(
-                label=("name Audio (No space)")
-             )
-            output = gr.Audio(
-                label=("Output")
-            ),
-            
-            download = gr.Button(
-                label=("download audio!"),
-            
-            download_button.click(
-            fn=yt_download,
-            inputs=[link, cfile],
-            outputs=[output],
-            )
+
                 
     # Single inference tab
     with gr.Tab(i18n("Single")):
@@ -377,6 +306,7 @@ def inference_tab():
             vc_output2 = gr.Audio(label=i18n("Export Audio"))
 
     # Batch inference tab
+
     with gr.Tab(i18n("Batch")):
         with gr.Row():
             with gr.Column():
@@ -386,6 +316,7 @@ def inference_tab():
                     value=os.path.join(now_dir, "assets", "audios"),
                     interactive=True,
                 )
+                
                 output_folder_batch = gr.Textbox(
                     label=i18n("Output Folder"),
                     placeholder=i18n("Enter output path"),
@@ -449,7 +380,7 @@ def inference_tab():
                         "crepe",
                         "crepe-tiny",
                         "rmvpe",
-                        "hybrid[rmvpe+fcpe]",
+                        "hybrid[rmvpe+fcpe+crepe-tiny]",
                     ],
                     value="rmvpe",
                     interactive=True,
